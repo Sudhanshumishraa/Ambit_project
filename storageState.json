@@ -1,0 +1,14 @@
+{
+  "cookies": [],
+  "origins": [
+    {
+      "origin": "https://uatbudgeting.cylsys.com",
+      "localStorage": [
+        {
+          "name": "userData",
+          "value": "{\"data\":{\"userId\":8,\"userEmail\":\"Gautam@mailinator.com\",\"name\":\"Gautam Gupte\",\"roleId\":56,\"role_name\":\"admin\",\"designation\":null,\"companyId\":20,\"is_individual\":0,\"logoUrl\":\"http://uatbudgetingapis.cylsys.com/src/uploads/product_logo.svg\",\"is_group_company\":true,\"group_name\":\"Ambit Singapore Ltd\",\"emp_id\":\"8\"},\"token\":\"3a360d29362b5687391f58a4dd4597da:97ec2d64758e2c11220fed2cced09b38e1bcee5e6d089a74b70a4fd2ecafbdf66efbe8a6aa3d4b9698e538caf16eedb63478ae73638a1462dd2116eba4d4b2d9ca5450cbbbc915c0148fd216fba687e2f48954eb08e3c94606efec0b102040520964a25be39d961eb478af7df6ceee06578bdf065c7b2b4397b83c8c3c25dbc8381cc8085e58daab840870eb48ebad4b57d26ead1db8f4a930f9c71c511944434cae08b490dd3fad97c05706105f46c8c0a86340c76179854c8b5dfc832e54b6dd166d252c0adc5796ec538136841ef47c65690a714cde6a36267b50d0d0a3ea82471f3cd86088971e980c08a30a13b49bb0d514e69675b6b54226bf80e65ee09005b00cbf31d5e79fca3c04dfb3e3d36112eb582464d05af7df677b3382779a69ae70f27e32737ddc5d13b85b24c07f534e222ff349837ab5e1a71311c1e6fb80a09a6ed96c68f945737e88f987483ced0d6a7a4d4881f819f289efd770410f3b435108fad7a5d1f7a4e865dcf266d3a5b32dcda44aea4a69f9231f42cf89a9\"}"
+        }
+      ]
+    }
+  ]
+}

@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { performLogin } from './helpers/loginHelper.js';
 
 // Test Suite for Login Functionality
 test.describe('Login Page Test Suite', () => {
@@ -10,30 +11,11 @@ test.describe('Login Page Test Suite', () => {
 
     // Test Case 1: Successful Login
     test('TC01 - Verify successful login with valid credentials', async ({ page }) => {
-        // Enter email
-        await page.getByPlaceholder('Enter email').click();
-        await page.getByPlaceholder('Enter email').fill('gautam@mailinator.com');
-        console.log('Entered valid email');
-        await expect(page.getByPlaceholder('Enter email')).toHaveValue('gautam@mailinator.com');
-
-        // Enter password
-        await page.getByPlaceholder('Password').click();
-        await page.getByPlaceholder('Password').fill('Rahul@1');
-        console.log('Entered valid password');
-        await expect(page.getByPlaceholder('Password')).toHaveValue('Rahul@1');
-
-        // Click login button
-        await page.getByRole('button', { name: 'Log in' }).click();
-        console.log('Clicked login button');
-
+        await performLogin(page);
+        
         // Verify successful login and navigation to dashboard
-        await page.waitForNavigation({ url: 'https://uatbudgeting.cylsys.com/dashboard' });
+        await expect(page).toHaveURL('https://uatbudgeting.cylsys.com/dashboard');
         console.log('Successfully logged in to dashboard');
-
-        // Verify dashboard elements are visible
-        await expect(page.getByRole('button', { name: 'Logo' }).nth(3)).toBeVisible();
-        await page.getByRole('button', { name: 'Logo' }).nth(3).click();
-        console.log('Dashboard elements verified');
     });
 
     // Test Case 2: Login with Invalid Email
@@ -80,28 +62,28 @@ test.describe('Login Page Test Suite', () => {
     test('TC05 - Verify password visibility toggle functionality', async ({ page }) => {
         // Fill the password field
         await page.getByPlaceholder('Password').fill('TestPassword123');
-    
+
         // Check that the initial password field type is 'password' (hidden)
         const passwordInput = page.getByPlaceholder('Password');
         await expect(passwordInput).toHaveAttribute('type', 'password');
         console.log('Password field is hidden by default');
-    
+
         // Click the "show password" button (eye icon) and verify the password is visible
-        const showPasswordButton = page.locator('path'); 
+        const showPasswordButton = page.locator('path');
         await showPasswordButton.click();
         await expect(passwordInput).toHaveAttribute('type', 'text');
         console.log('Password is now visible');
-    
+
         // Verify the "hide password" button (eye-off icon) is now visible
-        const hidePasswordButton = page.locator('svg'); 
+        const hidePasswordButton = page.locator('svg');
         await expect(hidePasswordButton).toBeVisible();
         console.log('Hide password button is visible');
-    
+
         // Click the "hide password" button and verify the password is hidden again
         await hidePasswordButton.click();
         await expect(passwordInput).toHaveAttribute('type', 'password');
         console.log('Password is hidden again');
-    
+
         // Verify the "show password" button is visible again
         await expect(showPasswordButton).toBeVisible();
         console.log('Show password button is visible again');
